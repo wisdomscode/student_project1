@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{ name }}</h1>
+    <h2>hey, {{ name }} you are {{ age }} years old</h2>
+    <h3>Your friends are:</h3>
+
+    <ul>
+        {% for i in friends %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if gender == 'male' %}
+        <h2>You are a Man </h2>
+    {% elif gender == 'female' %}
+        <h2>You are a Woman </h2>
+    {% else %}
+        <h2>You are a Bobirisky </h2>
+    {% endif %}
+
+
+    <div>
+        <a href="{% url 'add_new_user' %}">Add new User</a>
+    </div>
+</body>
+</html>
