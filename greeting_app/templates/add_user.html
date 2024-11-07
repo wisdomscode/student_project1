@@ -7,14 +7,21 @@
 </head>
 <body>
     <h2>User Information Form</h2>
-    <!-- create a form that submit these data to the backend
-         It should navigate you back to the index.html and 
-        dispay the entered data 
-    -->
+     <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Enter your Name" id=""><br><br>
+        <input type="text" name="age" placeholder="Enter Age" id=""><br><br>
+        <select name="gender" id="" >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select><br><br>
 
-    <!-- name -->
-    <!-- age -->
-    <!-- gender -->
+        <button type="submit">Submit</button>
+     </form>
+
+
      
 </body>
 </html>

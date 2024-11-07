@@ -8,17 +8,27 @@ from django.http import HttpResponse
 
 
 def index(request):
-    name = 'Ahmed'
-    age = 23
-    friends = ['James', 'Tom', 'Ann', 'Juliet']
-    gender = 'female'
-    context = {
-        'name': name, 
-        'age': age, 
-        'friends': friends,
-        'gender': gender
-     }
-    return render(request, 'index.html', context=context)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+
+        # print(name, age, gender)
+
+        friends = ['James', 'Tom', 'Ann', 'Juliet']
+        context = {
+            'name': name, 
+            'age': age, 
+            'friends': friends,
+            'gender': gender
+        }
+        return render(request, 'index.html', context=context)
+    return render(request, 'index.html')
 
 def addUser(request):
     return render(request, 'add_user.html')
+
+
+def showName(request):
+    my_name = request.GET.get('name')
+    return render(request, 'show_my_name.html', {'my_name': my_name})
