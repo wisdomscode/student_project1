@@ -22,13 +22,13 @@ def index(request):
             'friends': friends,
             'gender': gender
         }
-        return render(request, 'index.html', context=context)
-    return render(request, 'index.html')
+        return render(request, 'greetings/index.html', context=context)
+    return render(request, 'greetings/index.html')
 
 def addUser(request):
-    return render(request, 'add_user.html')
+    return render(request, 'greetings/add_user.html')
 
 
 def showName(request):
     my_name = request.GET.get('name')
-    return render(request, 'show_my_name.html', {'my_name': my_name})
+    return render(request, 'greetings/show_my_name.html', {'my_name': my_name})
