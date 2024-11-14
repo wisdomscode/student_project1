@@ -1,0 +1,23 @@
+{%  extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h2 class="my-5">Delete Student </h2>
+
+        <h3>Are you sure you want to DELETE this Student?</h3>
+        <h2>{{ student.first_name }} {{ student.last_name }}</h2>
+
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'home_page' %}" class="btn btn-secondary">Cancel</a>
+
+            <form action="{% url 'deleteStudent' student.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">OK</button>
+            </form>
+        </div>
+       
+
+    </div>
+</div>
+{%  endblock content %}
